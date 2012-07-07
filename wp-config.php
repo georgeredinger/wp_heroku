@@ -15,19 +15,20 @@
  */
 
 // ** Heroku Postgres settings - from Heroku Environment ** //
-$db = parse_url($_ENV["DATABASE_URL"]);
 
-/** The name of the database for WordPress */
-define('DB_NAME', trim($db["path"],"/"));
-
-/** MySQL database username */
-define('DB_USER', $db["user"]);
-
-/** MySQL database password */
-define('DB_PASSWORD', $db["pass"]);
-
-/** MySQL hostname */
-define('DB_HOST', $db["host"]);
+$env = $_ENV["WORDPRESS"];
+//if($env == 'development') {
+	define('DB_NAME', "wordpress-heroku");
+	define('DB_USER',"george");
+	define('DB_PASSWORD',"");
+	define('DB_HOST',"127.0.0.1");
+//} else {
+//	$db = parse_url($_ENV["DATABASE_URL"]);
+//	define('DB_NAME', trim($db["path"],"/"));
+//	define('DB_USER', $db["user"]);
+//	define('DB_PASSWORD', $db["pass"]);
+//	define('DB_HOST', $db["host"]);
+//}
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -80,7 +81,9 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', true);
 
 /* That's all, stop editing! Happy blogging. */
 
@@ -90,3 +93,5 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+print_r( "on line 98!", true );

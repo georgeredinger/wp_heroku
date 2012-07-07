@@ -15,14 +15,14 @@ if( !defined('PG4WP_ROOT'))
 define('DB_DRIVER', 'pgsql'); // 'pgsql' or 'mysql' are supported for now
 
 // Set this to 'true' and check that `pg4wp` is writable if you want debug logs to be written
-define( 'PG4WP_DEBUG', false);
+define( 'PG4WP_DEBUG', true);
 // If you just want to log queries that generate errors, leave PG4WP_DEBUG to "false"
 // and set this to true
-define( 'PG4WP_LOG_ERRORS', false);
+define( 'PG4WP_LOG_ERRORS', true);
 
 // If you want to allow insecure configuration (from the author point of view) to work with PG4WP,
 // change this to true
-define( 'PG4WP_INSECURE', false);
+define( 'PG4WP_INSECURE', true);
 
 // This defines the directory where PG4WP files are loaded from
 //   2 places checked : wp-content and wp-content/plugins
@@ -34,3 +34,4 @@ else
 // Here happens all the magic
 require_once( PG4WP_ROOT.'/core.php');
 } // Protection against multiple loading
+

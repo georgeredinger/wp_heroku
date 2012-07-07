@@ -77,7 +77,7 @@
 		
 		// While installing, we test the connection to 'template1' (as we don't know the effective dbname yet)
 		if( defined('WP_INSTALLING') && WP_INSTALLING)
-			return wpsql_select_db( 'template1');
+			return wpsql_select_db( 'wordpress-heroku');
 		
 		return 1;
 	}
